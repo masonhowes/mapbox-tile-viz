@@ -120,6 +120,19 @@
                 'source': 'park'
             });
 
+             map.on('idle', () => {
+                const visibleLayers = map.getStyle().layers.filter(layer => map.getLayoutProperty(layer.id, 'visibility') === 'visible');
+                const visibleLayerId = visibleLayers[0].id; // Assuming only one layer is visible at a time
+                document.getElementById('description').textContent = descriptions[visibleLayerId];
+            });
+
+            // Toggle layer visibility when clicking on the layer menu
+            document.getElementById('menu').addEventListener('click', function(e) {
+                const layerId = e.target.textContent;
+                const visibility = map.getLayoutProperty(layerId, 'visibility');
+                map.setLayoutProperty(layerId, 'visibility', visibility === 'visible' ? 'none' : 'visible');
+            });
+
         });
 
 
