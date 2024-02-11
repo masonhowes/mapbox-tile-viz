@@ -78,16 +78,16 @@
         let map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/dark-v10',
-            zoom: 8.5, // starting zoom
+            zoom: 12, // starting zoom
             center: [-122.302265017245, 47.65194280267416] // starting center
         });
 
         map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
 
-            map.addSource('blue-monochrome', {
+            map.addSource('bluemono', {
                 'type': 'raster',
                 'tiles': [
-                    'assets/SkyBlue-Monochrome/{z}/{x}/{y}.png'
+                    'assets/BlueMonochrome/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 256,
                 'attribution': 'Map tiles designed by Mason Howes</a>'
@@ -99,7 +99,7 @@
                 'layout': {
                     'visibility': 'none'
                 },
-                'source': 'blue-monochrome'
+                'source': 'bluemono'
             });
 
         });
