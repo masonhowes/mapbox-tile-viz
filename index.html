@@ -102,6 +102,15 @@
                 'attribution': 'Map tiles designed by Mason Howes'
             });
 
+            map.addSource('parkbluemono', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/ParksBlueMono/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 256,
+                'attribution': 'Map tiles designed by Mason Howes'
+            });
+
             map.addLayer({
                 'id': 'blue monochrome',
                 'type': 'raster',
@@ -120,18 +129,27 @@
                 'source': 'park'
             });
 
+            map.addLayer({
+                'id': 'blue monochrome + parks',
+                'type': 'raster',
+                'layout': {
+                    'visibility': 'none'
+                },
+                'source': 'parkbluemono'
+            });
+
         });
 
 
         // After the last frame rendered before the map enters an "idle" state.
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
-            if (!map.getLayer('blue monochrome') || !map.getLayer('parks')) {
+            if (!map.getLayer('blue monochrome') || !map.getLayer('parks') || !map.getLayer('blue monochrome + parks')) {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['blue monochrome', 'parks'];
+            const toggleableLayerIds = ['blue monochrome', 'parks', 'blue monochrome + parks'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
