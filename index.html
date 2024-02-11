@@ -93,13 +93,22 @@
                 'attribution': 'Map tiles designed by Mason Howes</a>'
             });
 
+            map.addSource('park', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/Park/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 256,
+                'attribution': 'Map tiles designed by Mason Howes</a>'
+            });
+
             map.addLayer({
-                'id': 'bm',
+                'id': 'parks',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
                 },
-                'source': 'bluemono'
+                'source': 'park'
             });
 
         });
@@ -108,12 +117,12 @@
         // After the last frame rendered before the map enters an "idle" state.
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
-            if (!map.getLayer('bm')) {
+            if (!map.getLayer('bm')) || !map.getLayer('parks')) {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['bm'];
+            const toggleableLayerIds = ['bm', 'parks'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
