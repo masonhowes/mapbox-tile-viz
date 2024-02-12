@@ -41,4 +41,4 @@ This map examines the Geographic Area of North Seattle, focused on the Universit
 
 There exists 12 rendered zoom levels for this map, between zoom level 14 and zoom level 3.
 
-For this map, I used the Mapbox "Style with image" option to stylee the map after Microsoft's colorscheme. I chose this theme because my parents giving me access to a Microsoft computer at a young age sparked my enthusiasm for technology, and got me to where I am today. I used the most fitting and visually pleasing colors for each geographic detail in order to make the map aesthetically pleasing to look at with the theme integrated.
+For this map, I used the Mapbox "Style with image" option to style the map after Microsoft's colorscheme. I chose this theme because my parents giving me access to a Microsoft computer at a young age sparked my enthusiasm for technology, and got me to where I am today. I used the most fitting and visually pleasing colors for each geographic detail in order to make the map aesthetically pleasing to look at with the theme integrated.
