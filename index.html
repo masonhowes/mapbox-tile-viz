@@ -111,6 +111,15 @@
                 'attribution': 'Map tiles designed by Mason Howes'
             });
 
+            map.addSource('microsoft', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/Microsoft/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 256,
+                'attribution': 'Map tiles designed by Mason Howes'
+            });
+
             map.addLayer({
                 'id': 'blue monochrome',
                 'type': 'raster',
@@ -138,18 +147,27 @@
                 'source': 'parkbluemono'
             });
 
+            map.addLayer({
+                'id': 'microsoft',
+                'type': 'raster',
+                'layout': {
+                    'visibility': 'none'
+                },
+                'source': 'microsoft'
+            });
+
         });
 
 
         // After the last frame rendered before the map enters an "idle" state.
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
-            if (!map.getLayer('blue monochrome') || !map.getLayer('parks') || !map.getLayer('blue monochrome + parks')) {
+            if (!map.getLayer('blue monochrome') || !map.getLayer('parks') || !map.getLayer('blue monochrome + parks') || !map.getLayer('microsoft')) {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['blue monochrome', 'parks', 'blue monochrome + parks'];
+            const toggleableLayerIds = ['blue monochrome', 'parks', 'blue monochrome + parks', 'microsoft'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
