@@ -153,7 +153,7 @@
             });
 
             map.addLayer({
-                'id': 'blue monochrome',
+                'id': 'Blue Monochrome',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
@@ -162,7 +162,7 @@
             });
 
             map.addLayer({
-                'id': 'parks',
+                'id': 'Parks',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
@@ -171,7 +171,7 @@
             });
 
             map.addLayer({
-                'id': 'blue monochrome + parks',
+                'id': 'Blue Monochrome + Parks',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
@@ -180,7 +180,7 @@
             });
 
             map.addLayer({
-                'id': 'microsoft',
+                'id': 'Microsoft',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
@@ -194,12 +194,12 @@
         // After the last frame rendered before the map enters an "idle" state.
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
-            if (!map.getLayer('blue monochrome') || !map.getLayer('parks') || !map.getLayer('blue monochrome + parks') || !map.getLayer('microsoft')) {
+            if (!map.getLayer('Blue Monochrome') || !map.getLayer('Parks') || !map.getLayer('Blue Monochrome + Parks') || !map.getLayer('Microsoft')) {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['blue monochrome', 'parks', 'blue monochrome + parks', 'microsoft'];
+            const toggleableLayerIds = ['Blue Monochrome', 'Parks', 'Blue Monochrome + Parks', 'Microsoft'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
